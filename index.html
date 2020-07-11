@@ -13,6 +13,17 @@
             <div class="col-6"><a href="#">View Highscores</a></div>
             <div class="col-6 d-flex justify-content-end">Time: <span id="timeLeft"></span></div>
         </div>
+        <!-- Intro to quiz on page load -->
+        <div class="row d-none">
+            <div class="col-12 card border-0">
+                <div class="card-body col-12 col-md-8 offset-md-2">
+                    <h2>Coding Quiz Challenge</h2>
+                    <p>You will have 60 seconds to correctly answer 10 questions.</p>
+                    <button class="btn btn-primary">Begin the Quiz</button>
+                </div>
+            </div>
+        </div>
+        <!-- multiple choice card during quiz -->
         <div class="row">
             <div class="col-12 card border-0">
                 <div class="card-body col-12 col-md-8 offset-md-2">
@@ -21,7 +32,31 @@
                     <div class="answers mt-2"><button class="btn btn-primary" id="answerButton2">Answer Two</button></div>
                     <div class="answers mt-2"><button class="btn btn-primary" id="answerButton3">Answer Three</button></div>
                     <div class="answers mt-2"><button class="btn btn-primary" id="answerButton4">Answer Four</button></div>
-                    <div class="mt-2 border-top" id="submissionFeedback">Answer Feedback!</div>
+                    <div class="mt-2 border-top d-none" id="submissionFeedback">Answer Feedback!</div>
+                </div>
+            </div>
+        </div>
+        <!-- Enter your high score -->
+        <div class="row d-none">
+            <div class="col-12 card border-0">
+                <div class="card-body col-12 col-md-8 offset-md-2">
+                    <h2>All done! </h2>
+                    <div><p>Your score is: <span id="finalScoreSpan"></span></p></div>
+                    <div>Enter your initials: 
+                        <span><input type="text" name="initials" id="initialInput"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Display of high scores -->
+        <div class="row d-none">
+            <div class="col-12 card border-0">
+                <div class="card-body col-12 col-md-8 offset-md-2">
+                    <h2>High Scores</h2>
+                    <ul id="highScoreList"></ul>
+                    <button class="btn btn-primary" id="restartQuizButton">Restart Quiz</button>
+                    <button class="btn btn-primary" id="clearScoresButton">Clear High Scores</button>
+                    
                 </div>
             </div>
         </div>
