@@ -14,17 +14,17 @@
             <div class="col-6 d-flex justify-content-end">Time: <span id="timeLeft"></span></div>
         </div>
         <!-- Intro to quiz on page load -->
-        <div class="row d-none">
+        <div class="row" id="introCard">
             <div class="col-12 card border-0">
                 <div class="card-body col-12 col-md-8 offset-md-2">
                     <h2>Coding Quiz Challenge</h2>
                     <p>You will have 60 seconds to correctly answer 10 questions.</p>
-                    <button class="btn btn-primary">Begin the Quiz</button>
+                    <button class="btn btn-primary" id="startQuizButton">Begin the Quiz</button>
                 </div>
             </div>
         </div>
         <!-- multiple choice card during quiz -->
-        <div class="row">
+        <div class="row d-none" id="questionCard">
             <div class="col-12 card border-0">
                 <div class="card-body col-12 col-md-8 offset-md-2">
                     <h2 id="questionTitle">Demo Question Number One</h2>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <!-- Enter your high score -->
-        <div class="row d-none">
+        <div class="row d-none" id="enterScoreCard">
             <div class="col-12 card border-0">
                 <div class="card-body col-12 col-md-8 offset-md-2">
                     <h2>All done! </h2>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <!-- Display of high scores -->
-        <div class="row d-none">
+        <div class="row d-none" id="highScoreCard">
             <div class="col-12 card border-0">
                 <div class="card-body col-12 col-md-8 offset-md-2">
                     <h2>High Scores</h2>
