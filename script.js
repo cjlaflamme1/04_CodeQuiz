@@ -59,8 +59,8 @@ let finalScore = 0;
 // Timer function
 function quizTimer(){
     if ((currentQuestionCount < (quizQuestions.length) && quizTimeRemaining > 0)) {
-        timerDisplay.textContent = quizTimeRemaining;
         quizTimeRemaining--;
+        timerDisplay.textContent = quizTimeRemaining;
     } else {
         timerDisplay.textContent = quizTimeRemaining;
         document.getElementById('questionCard').classList.add('d-none');
