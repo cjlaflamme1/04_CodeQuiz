@@ -77,6 +77,7 @@ function quizTimer(){
     }
 }
 
+// populate high score function
 
 // This is the function that modifies the quiz content and progresses the question counter.
 function questionModifier(i) {
