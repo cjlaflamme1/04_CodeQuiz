@@ -6,6 +6,7 @@ const answerButton1 = document.getElementById('1');
 const answerButton2 = document.getElementById('2');
 const answerButton3 = document.getElementById('3');
 const answerButton4 = document.getElementById('4');
+const submissionFeedback = document.getElementById('submissionFeedback');
 // Quiz questions in Array of objects.
 const quizQuestions = [
     {
@@ -23,10 +24,35 @@ const quizQuestions = [
         answer3: "Ja",
         answer4: "inte so micha",
         correctAnswer: "3"
+    },
+    {
+        questionTitle: "This is, again, a test question?",
+        answer1: "Nej",
+        answer2: "Maybe in Swedish",
+        answer3: "Ja",
+        answer4: "inte so micha",
+        correctAnswer: "3"
+    },
+    {
+        questionTitle: "This is likely, also a test question?",
+        answer1: "Nej",
+        answer2: "Maybe in Swedish",
+        answer3: "Ja",
+        answer4: "inte so micha",
+        correctAnswer: "3"
+    },
+    {
+        questionTitle: "Have you considered using a test question?",
+        answer1: "Nej",
+        answer2: "Maybe in Swedish",
+        answer3: "Ja",
+        answer4: "inte so micha",
+        correctAnswer: "3"
     }
 ]
 let quizTimer = 60;
 let currentQuestionCount = 0;
+let score = 0;
 // This is the function that modifies the quiz content and progresses the question counter.
 function questionModifier(i) {
     if (quizTimer > 0) {
@@ -51,17 +77,28 @@ function answerQuestion(event) {
         console.log(targetAnswerID);
         if (targetAnswerID === quizQuestions[i].correctAnswer) {
             // This function executes if they click the correct button.
-            console.log('You are correct!')
+            score++;
             currentQuestionCount++;
             questionModifier(currentQuestionCount);
             // Add answer feedback text to HTML
+            if (submissionFeedback.classList.contains('d-none')) {
+                submissionFeedback.classList.remove('d-none');
+                submissionFeedback.textContent = "Correct!";
+            } else {
+                submissionFeedback.textContent = "Correct!";
+            }
         } 
         else if (targetAnswerID !== quizQuestions[i].correctAnswer) {
             // This function executes if they click the incorrect button.
-            console.log('WROOOONG!');
             currentQuestionCount++;
             questionModifier(currentQuestionCount);
             // Add answer feedback text to HTML
+            if (submissionFeedback.classList.contains('d-none')) {
+                submissionFeedback.classList.remove('d-none');
+                submissionFeedback.textContent = "Wroooooong!";
+            } else {
+                submissionFeedback.textContent = "Wroooooong!";
+            }
             // subtract time from quiz timer
         }
     } else {
