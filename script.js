@@ -152,6 +152,8 @@ document.getElementById('submitScore').addEventListener('click', function(event)
     highScores.push(`${scoreInitials}: ${finalScore}`);
     console.log(highScores);
     localStorage.setItem('highScores', JSON.stringify(highScores));
+    document.getElementById('enterScoreCard').classList.add('d-none');
+    document.getElementById('highScoreCard').classList.remove('d-none');
 })
 // Add event listener for clearing high score
 
