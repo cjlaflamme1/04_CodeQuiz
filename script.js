@@ -9,8 +9,7 @@ const answerButton3 = document.getElementById('3');
 const answerButton4 = document.getElementById('4');
 const submissionFeedback = document.getElementById('submissionFeedback');
 
-
-// Quiz questions in Array of objects.
+// Quiz questions in Array of objects. Needs actual quiz questions.
 const quizQuestions = [
     {
         questionTitle: "This is a test question?",
@@ -144,3 +143,11 @@ startQuizButton.addEventListener('click', function(event) {
 })
 // Add event listener for answering questions
 document.querySelector('div#questionCard').addEventListener('click', answerQuestion);
+
+// Add event listener for high score submission
+
+// Add event listener for clearing high score
+
+// Add event listener to restart quiz
+
+// Add event listener for checking High Scores
