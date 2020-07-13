@@ -1,3 +1,4 @@
+const timerDisplay = document.getElementById('timeLeft');
 // Hooks for intro card
 const startQuizButton = document.getElementById('startQuizButton');
 // Hooks for quiz card
@@ -7,6 +8,8 @@ const answerButton2 = document.getElementById('2');
 const answerButton3 = document.getElementById('3');
 const answerButton4 = document.getElementById('4');
 const submissionFeedback = document.getElementById('submissionFeedback');
+
+
 // Quiz questions in Array of objects.
 const quizQuestions = [
     {
@@ -50,12 +53,33 @@ const quizQuestions = [
         correctAnswer: "3"
     }
 ]
-let quizTimer = 60;
+let quizTimeRemaining = 60;
 let currentQuestionCount = 0;
 let score = 0;
+let finalScore = 0;
+// Timer function
+function quizTimer(){
+    if ((currentQuestionCount < (quizQuestions.length) && quizTimeRemaining > 0)) {
+        timerDisplay.textContent = quizTimeRemaining;
+        quizTimeRemaining--;
+    } else {
+        timerDisplay.textContent = quizTimeRemaining;
+        document.getElementById('questionCard').classList.add('d-none');
+        document.getElementById('enterScoreCard').classList.remove('d-none');
+        clearTimeout();
+        if (score === 0) {
+            quizTimeRemaining = 0;
+            timerDisplay.textContent = quizTimeRemaining;
+        }
+        finalScore = score + quizTimeRemaining;
+        document.getElementById('finalScoreSpan').textContent = finalScore;
+    }
+}
+
+
 // This is the function that modifies the quiz content and progresses the question counter.
 function questionModifier(i) {
-    if (quizTimer > 0) {
+    if ((quizTimeRemaining > 0) && currentQuestionCount < quizQuestions.length) {
     questionTitle.innerText = quizQuestions[i].questionTitle;
     answerButton1.innerText = quizQuestions[i].answer1;
     answerButton2.innerText = quizQuestions[i].answer2;
@@ -70,11 +94,9 @@ function questionModifier(i) {
 function answerQuestion(event) {
     let i = currentQuestionCount;
     const targetButton = event.target.classList.contains('answerButton');
-    console.log('You (tried) to click an answer!');
     if (targetButton) {
         // This function executes if they actually click a button on the screen.
         const targetAnswerID = event.target.id;
-        console.log(targetAnswerID);
         if (targetAnswerID === quizQuestions[i].correctAnswer) {
             // This function executes if they click the correct button.
             score++;
@@ -100,6 +122,7 @@ function answerQuestion(event) {
                 submissionFeedback.textContent = "Wroooooong!";
             }
             // subtract time from quiz timer
+            quizTimeRemaining = quizTimeRemaining - 10;
         }
     } else {
         // this executes if they click anywhere on the screen that is not a button.
@@ -115,7 +138,8 @@ startQuizButton.addEventListener('click', function(event) {
     document.getElementById('introCard').classList.add('d-none');
     document.getElementById('questionCard').classList.remove('d-none');
     // start timer
-    // call function to generate questions
+    setInterval(quizTimer, 1000);
+    // This calls the function to initiate quiz
     questionModifier(currentQuestionCount);
 })
 // Add event listener for answering questions

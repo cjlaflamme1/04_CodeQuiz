@@ -18,7 +18,7 @@
             <div class="col-12 card border-0">
                 <div class="card-body col-12 col-md-8 offset-md-2">
                     <h2>Coding Quiz Challenge</h2>
-                    <p>You will have 60 seconds to correctly answer 10 questions.</p>
+                    <p>You will have 60 seconds to correctly answer 10 questions. You receive one point for every correct answer and for every second left on the clock.  If you have no correct answers, you receive no points.</p>
                     <button class="btn btn-primary" id="startQuizButton">Begin the Quiz</button>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <div class="row d-none" id="questionCard">
             <div class="col-12 card border-0">
                 <div class="card-body col-12 col-md-8 offset-md-2">
-                    <h2 id="questionTitle">Demo Question Number One</h2>
+                    <h2 id="questionTitle">Test Question</h2>
                     <div class="mt-2"><button class="btn btn-primary answerButton" id="1">Answer One</button></div>
                     <div class="mt-2"><button class="btn btn-primary answerButton" id="2">Answer Two</button></div>
                     <div class="mt-2"><button class="btn btn-primary answerButton" id="3">Answer Three</button></div>
@@ -43,7 +43,7 @@
                     <h2>All done! </h2>
                     <div><p>Your score is: <span id="finalScoreSpan"></span></p></div>
                     <div>Enter your initials: 
-                        <span><input type="text" name="initials" id="initialInput"></span>
+                        <span><input type="text" name="initials" id="initialInput"></span><button class="btn btn-primary ml-2">Submit Score</button>
                     </div>
                 </div>
             </div>
