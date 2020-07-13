@@ -9,7 +9,7 @@ const answerButton3 = document.getElementById('3');
 const answerButton4 = document.getElementById('4');
 const submissionFeedback = document.getElementById('submissionFeedback');
 // Establishment of high scores.
-let highScores = [];
+let highScores = ['Rocky: 50', 'ChuckNorris: 80'];
 localStorage.setItem('highScores', JSON.stringify(highScores));
 // Quiz questions in Array of objects. Needs actual quiz questions.
 const quizQuestions = [
@@ -78,7 +78,14 @@ function quizTimer(){
 }
 
 // populate high score function
-
+document.querySelector('body').onload = function() {
+    highScores = JSON.parse(localStorage.getItem('highScores'));
+    for (i = 0; i < highScores.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = highScores[i];
+        document.getElementById('highScoreList').appendChild(li);
+    }
+}
 // This is the function that modifies the quiz content and progresses the question counter.
 function questionModifier(i) {
     if ((quizTimeRemaining > 0) && currentQuestionCount < quizQuestions.length) {
@@ -154,7 +161,7 @@ document.getElementById('submitScore').addEventListener('click', function(event)
     console.log(highScores);
     localStorage.setItem('highScores', JSON.stringify(highScores));
     document.getElementById('enterScoreCard').classList.add('d-none');
-    document.getElementById('highScoreCard').classList.remove('d-none');
+    window.location.href = "highscores.html";
 })
 // Add event listener for clearing high score
 
