@@ -8,7 +8,9 @@ const answerButton2 = document.getElementById('2');
 const answerButton3 = document.getElementById('3');
 const answerButton4 = document.getElementById('4');
 const submissionFeedback = document.getElementById('submissionFeedback');
-
+// Establishment of high scores.
+let highScores = [];
+localStorage.setItem('highScores', JSON.stringify(highScores));
 // Quiz questions in Array of objects. Needs actual quiz questions.
 const quizQuestions = [
     {
@@ -143,9 +145,14 @@ startQuizButton.addEventListener('click', function(event) {
 })
 // Add event listener for answering questions
 document.querySelector('div#questionCard').addEventListener('click', answerQuestion);
-
-// Add event listener for high score submission
-
+// Even listener for score submission
+document.getElementById('submitScore').addEventListener('click', function(event) {
+    highScores = JSON.parse(localStorage.getItem('highScores'));
+    let scoreInitials = document.querySelector('input#initialInput').value;
+    highScores.push(`${scoreInitials}: ${finalScore}`);
+    console.log(highScores);
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+})
 // Add event listener for clearing high score
 
 // Add event listener to restart quiz
