@@ -10,7 +10,7 @@
 <body>
     <main class="container">
         <div class="row mt-4">
-            <div class="col-6"><a href="highscores.html">View Highscores</a></div>
+            <div class="col-6"><a href="#">View Highscores</a></div>
             <div class="col-6 d-flex justify-content-end">Time: <span id="timeLeft">60</span></div>
         </div>
         <!-- Intro to quiz on page load -->
@@ -47,7 +47,18 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
+        <!-- High Score Display -->
+        <div class="row d-none" id="highScoreCard">
+            <div class="col-12 card border-0">
+                <div class="card-body col-12 col-md-8 offset-md-2">
+                    <h2>High Scores</h2>
+                    <ul id="highScoreList"></ul>
+                    <button class="btn btn-primary" id="restartQuizButton">Restart Quiz</button>
+                    <button class="btn btn-primary" id="clearScoresButton">Clear High Scores</button>
+                </div>
+            </div>
+        </div>   
     </main>
     
 <script src="script.js" type="text/javascript"></script>

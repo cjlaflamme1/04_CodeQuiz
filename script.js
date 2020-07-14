@@ -64,9 +64,11 @@ function quizTimer(){
         timerDisplay.textContent = quizTimeRemaining;
     } else {
         timerDisplay.textContent = quizTimeRemaining;
-        document.getElementById('questionCard').classList.add('d-none');
-        document.getElementById('enterScoreCard').classList.remove('d-none');
         clearTimeout();
+        document.getElementById('questionCard').classList.add('d-none');
+        if (document.getElementById('highScoreCard').classList.contains('d-none')) {
+            document.getElementById('enterScoreCard').classList.remove('d-none');
+        }
         if (score === 0) {
             quizTimeRemaining = 0;
             timerDisplay.textContent = quizTimeRemaining;
@@ -77,13 +79,12 @@ function quizTimer(){
 }
 
 // populate high score function
-document.querySelector('body').onload = function() {
+function populateHighScore() {
     highScores = JSON.parse(localStorage.getItem('highScores'));
     for (i = 0; i < highScores.length; i++) {
         const li = document.createElement("li");
         li.textContent = highScores[i];
         document.getElementById('highScoreList').appendChild(li);
-        console.log(highScores);
     }
 }
 // This is the function that modifies the quiz content and progresses the question counter.
@@ -101,6 +102,7 @@ function questionModifier(i) {
     }
 }
 function answerQuestion(event) {
+    event.preventDefault();
     let i = currentQuestionCount;
     const targetButton = event.target.classList.contains('answerButton');
     if (targetButton) {
@@ -155,12 +157,14 @@ startQuizButton.addEventListener('click', function(event) {
 document.querySelector('div#questionCard').addEventListener('click', answerQuestion);
 // Even listener for score submission
 document.getElementById('submitScore').addEventListener('click', function(event) {
+    event.preventDefault();
     highScores = JSON.parse(localStorage.getItem('highScores'));
     let scoreInitials = document.querySelector('input#initialInput').value;
     highScores.push(`${scoreInitials}: ${finalScore}`);
     localStorage.setItem('highScores', JSON.stringify(highScores));
+    populateHighScore();
     document.getElementById('enterScoreCard').classList.add('d-none');
-    window.location.href = "highscores.html";
+    document.getElementById('highScoreCard').classList.remove('d-none');
 })
 // Add event listener for clearing high score
 
