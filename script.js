@@ -9,8 +9,7 @@ const answerButton3 = document.getElementById('3');
 const answerButton4 = document.getElementById('4');
 const submissionFeedback = document.getElementById('submissionFeedback');
 // Establishment of high scores.
-let highScores = ['Rocky: 50', 'ChuckNorris: 80'];
-localStorage.setItem('highScores', JSON.stringify(highScores));
+let highScores = [];
 // Quiz questions in Array of objects. Needs actual quiz questions.
 const quizQuestions = [
     {
@@ -84,6 +83,7 @@ document.querySelector('body').onload = function() {
         const li = document.createElement("li");
         li.textContent = highScores[i];
         document.getElementById('highScoreList').appendChild(li);
+        console.log(highScores);
     }
 }
 // This is the function that modifies the quiz content and progresses the question counter.
@@ -158,7 +158,6 @@ document.getElementById('submitScore').addEventListener('click', function(event)
     highScores = JSON.parse(localStorage.getItem('highScores'));
     let scoreInitials = document.querySelector('input#initialInput').value;
     highScores.push(`${scoreInitials}: ${finalScore}`);
-    console.log(highScores);
     localStorage.setItem('highScores', JSON.stringify(highScores));
     document.getElementById('enterScoreCard').classList.add('d-none');
     window.location.href = "highscores.html";
