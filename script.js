@@ -11,6 +11,11 @@ const submissionFeedback = document.getElementById('submissionFeedback');
 // Establishment of high scores.
 const highScoreList = document.getElementById('highScoreList');
 let highScores = [];
+// Hooks to primary Cards/Rows.  Mainly used to toggle display.
+const introCard = document.getElementById('introCard');
+const questionCard = document.getElementById('questionCard');
+const enterScoreCard = document.getElementById('enterScoreCard');
+const highScoreCard = document.getElementById('highScoreCard');
 // Quiz questions in Array of objects. Needs actual quiz questions.
 const quizQuestions = [
     {
@@ -66,9 +71,9 @@ function quizTimer(){
     } else {
         timerDisplay.textContent = quizTimeRemaining;
         clearTimeout();
-        document.getElementById('questionCard').classList.add('d-none');
-        if (document.getElementById('highScoreCard').classList.contains('d-none')) {
-            document.getElementById('enterScoreCard').classList.remove('d-none');
+        questionCard.classList.add('d-none');
+        if (highScoreCard.classList.contains('d-none')) {
+            enterScoreCard.classList.remove('d-none');
         }
         if (score === 0) {
             quizTimeRemaining = 0;
@@ -85,7 +90,7 @@ function populateHighScore() {
     for (i = 0; i < highScores.length; i++) {
         const li = document.createElement("li");
         li.textContent = highScores[i];
-        document.getElementById('highScoreList').appendChild(li);
+        highScoreList.appendChild(li);
     }
 }
 // This is the function that modifies the quiz content and progresses the question counter.
@@ -96,7 +101,6 @@ function questionModifier(i) {
     answerButton2.innerText = quizQuestions[i].answer2;
     answerButton3.innerText = quizQuestions[i].answer3;
     answerButton4.innerText = quizQuestions[i].answer4;
-    // currentQuestionCount++;
     }
     else {
         return;
@@ -147,8 +151,8 @@ function answerQuestion(event) {
 // Begin quiz button function
 startQuizButton.addEventListener('click', function(event) {
     event.preventDefault();
-    document.getElementById('introCard').classList.add('d-none');
-    document.getElementById('questionCard').classList.remove('d-none');
+    introCard.classList.add('d-none');
+    questionCard.classList.remove('d-none');
     // start timer
     setInterval(quizTimer, 1000);
     // This calls the function to initiate quiz
@@ -164,8 +168,8 @@ document.getElementById('submitScore').addEventListener('click', function(event)
     highScores.push(`${scoreInitials}: ${finalScore}`);
     localStorage.setItem('highScores', JSON.stringify(highScores));
     populateHighScore();
-    document.getElementById('enterScoreCard').classList.add('d-none');
-    document.getElementById('highScoreCard').classList.remove('d-none');
+    enterScoreCard.classList.add('d-none');
+    highScoreCard.classList.remove('d-none');
 })
 // Add event listener for clearing high score
 document.getElementById('clearScoresButton').addEventListener('click', function(event) {
