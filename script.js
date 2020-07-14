@@ -182,5 +182,24 @@ document.getElementById('clearScoresButton').addEventListener('click', function(
     }
 })
 // Add event listener to restart quiz
-
+document.getElementById('restartQuizButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    location.reload();
+})
 // Add event listener for checking High Scores
+document.getElementById('viewHighScores').addEventListener('click', function(event) {
+    event.preventDefault();
+    populateHighScore();
+    if(!introCard.classList.contains('d-none')){
+        introCard.classList.add('d-none');
+        }
+    if(!questionCard.classList.contains('d-none')){
+        questionCard.classList.add('d-none');
+        }
+    if(!enterScoreCard.classList.contains('d-none')){
+        enterScoreCard.classList.add('d-none');
+        }
+    if(highScoreCard.classList.contains('d-none')){
+        highScoreCard.classList.remove('d-none');
+        }
+})
