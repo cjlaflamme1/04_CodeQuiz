@@ -9,6 +9,7 @@ const answerButton3 = document.getElementById('3');
 const answerButton4 = document.getElementById('4');
 const submissionFeedback = document.getElementById('submissionFeedback');
 // Establishment of high scores.
+const highScoreList = document.getElementById('highScoreList');
 let highScores = [];
 // Quiz questions in Array of objects. Needs actual quiz questions.
 const quizQuestions = [
@@ -167,7 +168,15 @@ document.getElementById('submitScore').addEventListener('click', function(event)
     document.getElementById('highScoreCard').classList.remove('d-none');
 })
 // Add event listener for clearing high score
-
+document.getElementById('clearScoresButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    highScores = JSON.parse(localStorage.getItem('highScores'));
+    highScores = [];
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    while (highScoreList.hasChildNodes()) {
+       highScoreList.removeChild(highScoreList.firstChild);
+    }
+})
 // Add event listener to restart quiz
 
 // Add event listener for checking High Scores
