@@ -89,7 +89,7 @@ function populateHighScore() {
     highScores = JSON.parse(localStorage.getItem('highScores'));
     for (i = 0; i < highScores.length; i++) {
         const li = document.createElement("li");
-        li.textContent = highScores[i];
+        li.textContent = `${highScores[i].initials}: ${highScores[i].score}`
         highScoreList.appendChild(li);
     }
 }
@@ -165,11 +165,12 @@ document.getElementById('submitScore').addEventListener('click', function(event)
     event.preventDefault();
     highScores = JSON.parse(localStorage.getItem('highScores'));
     let scoreInitials = document.querySelector('input#initialInput').value;
-    highScores.push(`${scoreInitials}: ${finalScore}`);
+    highScores.push({initials: scoreInitials, score: finalScore});
     localStorage.setItem('highScores', JSON.stringify(highScores));
     populateHighScore();
     enterScoreCard.classList.add('d-none');
     highScoreCard.classList.remove('d-none');
+    console.log(highScores);
 })
 // Add event listener for clearing high score
 document.getElementById('clearScoresButton').addEventListener('click', function(event) {
