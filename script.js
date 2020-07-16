@@ -87,6 +87,24 @@ function quizTimer(){
 // populate high score function
 function populateHighScore() {
     highScores = JSON.parse(localStorage.getItem('highScores'));
+    // Add compare and sort function
+    function compare(a,b) {
+        const scoreA = parseInt(a.score);
+        const scoreB = parseInt(b.score);
+        console.log(scoreA);
+        console.log(scoreB);
+        let comparison = 0;
+        if (scoreA > scoreB) {
+            comparison =  1;
+        } else if (scoreA < scoreB) {
+            comparison = -1;
+        } else {
+            comparison = 0;
+        }
+        return comparison * -1;
+    };
+    highScores.sort(compare);
+    console.log(highScores);
     for (i = 0; i < highScores.length; i++) {
         const li = document.createElement("li");
         li.textContent = `${highScores[i].initials}: ${highScores[i].score}`
@@ -170,7 +188,6 @@ document.getElementById('submitScore').addEventListener('click', function(event)
     populateHighScore();
     enterScoreCard.classList.add('d-none');
     highScoreCard.classList.remove('d-none');
-    console.log(highScores);
 })
 // Add event listener for clearing high score
 document.getElementById('clearScoresButton').addEventListener('click', function(event) {
