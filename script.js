@@ -132,8 +132,6 @@ function populateHighScore() {
     function compare(a,b) {
         const scoreA = parseInt(a.score);
         const scoreB = parseInt(b.score);
-        console.log(scoreA);
-        console.log(scoreB);
         let comparison = 0;
         if (scoreA > scoreB) {
             comparison =  1;
@@ -145,7 +143,6 @@ function populateHighScore() {
         return comparison * -1;
     };
     highScores.sort(compare);
-    console.log(highScores);
     for (i = 0; i < highScores.length; i++) {
         const li = document.createElement("li");
         li.textContent = `${highScores[i].initials}: ${highScores[i].score}`
