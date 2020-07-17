@@ -17,45 +17,86 @@ const questionCard = document.getElementById('questionCard');
 const enterScoreCard = document.getElementById('enterScoreCard');
 const highScoreCard = document.getElementById('highScoreCard');
 // Quiz questions in Array of objects. Needs actual quiz questions.
+// Most of these questions were taken from geeksforgeeks.com.
 const quizQuestions = [
     {
-        questionTitle: "This is a test question?",
-        answer1: "No",
-        answer2: "Maybe",
-        answer3: "Probably",
-        answer4: "Yuppers",
+        questionTitle: "Which of these values would qualify as a string?",
+        answer1: "You mean like string a guitar?",
+        answer2: "42",
+        answer3: "true",
+        answer4: "false",
+        correctAnswer: "1"
+    },
+    {
+        questionTitle: "How would you print a string to the console?",
+        answer1: "print ('like this')",
+        answer2: "console.log('like this')",
+        answer3: "console.print('no,like this')",
+        answer4: "print.log('this could work?')",
+        correctAnswer: "2"
+    },
+    {
+        questionTitle: "What is the HTML tag under which one can write the JavaScript code?",
+        answer1: "<javascript>",
+        answer2: "<scripted>",
+        answer3: "<script>",
+        answer4: "<js>",
+        correctAnswer: "3"
+    },
+    {
+        questionTitle: "Which of the following is the correct syntax to display 'WARNING WARNING!' in an alert box using JavaScript?",
+        answer1: "alertbox('WARNING WARNING!')",
+        answer2: "msg('WARNING WARNING!')",
+        answer3: "msgbox('WARNING WARNING!')",
+        answer4: "alert('WARNING WARNING!')",
         correctAnswer: "4"
     },
     {
-        questionTitle: "This is also a test question?",
-        answer1: "Nej",
-        answer2: "Maybe in Swedish",
-        answer3: "Ja",
-        answer4: "inte so micha",
+        questionTitle: "What is the correct syntax for referring to an external script called 'script.js'?",
+        answer1: "<script src='script.js'>",
+        answer2: "<script href='script.js'>",
+        answer3: "<script ref='script.js'>",
+        answer4: "<script name='script.js'>",
+        correctAnswer: "1"
+    },
+    {
+        questionTitle: "Which of these values would qualify as a string?",
+        answer1: "You mean like string a guitar?",
+        answer2: "42",
+        answer3: "true",
+        answer4: "false",
+        correctAnswer: "1"
+    },
+    {
+        questionTitle: "Which of the following is not a reserved word in JavaScript?",
+        answer1: "interface",
+        answer2: "throws",
+        answer3: "program",
+        answer4: "short",
         correctAnswer: "3"
     },
     {
-        questionTitle: "This is, again, a test question?",
-        answer1: "Nej",
-        answer2: "Maybe in Swedish",
-        answer3: "Ja",
-        answer4: "inte so micha",
+        questionTitle: "What is the syntax for creating a function in JavaScript named as Geekfunc?",
+        answer1: "function = Geekfunc()",
+        answer2: "function Geekfunc()",
+        answer3: "function:= Geekfunc()",
+        answer4: "function : Geekfunc()",
+        correctAnswer: "2"
+    },
+    {
+        questionTitle: "How is the function called in JavaScript?",
+        answer1: "call Geekfunc()",
+        answer2: "call function GeekFunc()",
+        answer3: "Geekfunc()",
+        answer4: "function GeekFunc()",
         correctAnswer: "3"
     },
     {
-        questionTitle: "This is likely, also a test question?",
-        answer1: "Nej",
-        answer2: "Maybe in Swedish",
-        answer3: "Ja",
-        answer4: "inte so micha",
-        correctAnswer: "3"
-    },
-    {
-        questionTitle: "Have you considered using a test question?",
-        answer1: "Nej",
-        answer2: "Maybe in Swedish",
-        answer3: "Ja",
-        answer4: "inte so micha",
+        questionTitle: "How to write an 'if' statement for executing some code. If 'i' is NOT equal to 5?",
+        answer1: "if(i<>5)",
+        answer2: "if i<>5",
+        answer3: "if(!=5)",
+        answer4: "if i!=5",
         correctAnswer: "3"
     }
 ]
