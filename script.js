@@ -60,12 +60,12 @@ const quizQuestions = [
         correctAnswer: "1"
     },
     {
-        questionTitle: "Which of these values would qualify as a string?",
+        questionTitle: "What is the method in JavaScript used to remove the whitespace at the beginning and end of any string?",
         answer1: "You mean like string a guitar?",
-        answer2: "42",
-        answer3: "true",
-        answer4: "false",
-        correctAnswer: "1"
+        answer2: "trim()",
+        answer3: "strip()",
+        answer4: "stripped()",
+        correctAnswer: "2"
     },
     {
         questionTitle: "Which of the following is not a reserved word in JavaScript?",
