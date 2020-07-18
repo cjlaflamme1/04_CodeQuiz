@@ -11,6 +11,13 @@ const submissionFeedback = document.getElementById('submissionFeedback');
 // Establishment of high scores.
 const highScoreList = document.getElementById('highScoreList');
 let highScores = [];
+function initializeHighScores() {
+    if (!JSON.parse(localStorage.getItem('highScores'))) {
+        highScores = [];
+        localStorage.setItem('highScores', JSON.stringify(highScores));
+    }
+}
+initializeHighScores();
 // Hooks to primary Cards/Rows.  Mainly used to toggle display.
 const introCard = document.getElementById('introCard');
 const questionCard = document.getElementById('questionCard');
